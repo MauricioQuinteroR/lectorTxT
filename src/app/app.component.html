@@ -1,0 +1,39 @@
+
+
+<!-- <router-outlet></router-outlet> -->
+<!-- <app-file-reader></app-file-reader> -->
+
+<div>
+  <label>FURIPS 1</label>
+  <br>
+  <hr>
+  <input type="file" (change)="onFileChange($event, 1)" accept=".txt" />
+  <table mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of displayedColumns; let i = index" matColumnDef="{{column}}">
+      <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngClass]="applyClass(element[i])">{{element[i]}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+</div>
+
+<br />
+<hr />
+
+<div>
+  <label>FURIPS 2</label>
+  <br>
+  <hr>
+  <input type="file" (change)="onFileChange($event, 2)" accept=".txt" />
+  <table mat-table [dataSource]="dataSource2">
+    <ng-container *ngFor="let column of displayedColumns2; let i = index" matColumnDef="{{column}}">
+      <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngClass]="applyClass(element[i])">{{element[i]}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+  </table>
+</div>
